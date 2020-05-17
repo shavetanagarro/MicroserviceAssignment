@@ -1,0 +1,47 @@
+﻿@model UserOrderModel
+
+@{
+    ViewData["Title"] = "User Order View";
+}
+
+<h1>User details</h1>
+
+
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Index", "Home")'">Back</button>
+<div class="user-details">
+    <div><label>User Name</label> <span>@Model.User.Name</span> </div>
+    <div><label>Email</label> <span>@Model.User.Email</span> </div>
+    <div><label>Age</label> <span>@Model.User.Age</span> </div>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order Id
+            </th>
+            <th>
+                Order Amount
+            </th>
+            <th>
+                Order Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Order)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
